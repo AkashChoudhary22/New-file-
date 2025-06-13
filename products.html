@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | Knot & Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">Knot & Toe</a>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail-section">
+        <div class="container">
+            <div class="product-detail-wrapper">
+                <div class="product-breadcrumb">
+                    <a href="index.html">Home</a> &gt; 
+                    <a href="products.html">Shop</a> &gt; 
+                    <span id="product-category-breadcrumb">Category</span> &gt; 
+                    <span id="product-name-breadcrumb">Product Name</span>
+                </div>
+                
+                <div class="product-detail-content">
+                    <div class="product-images">
+                        <div class="main-image">
+                            <img id="product-main-image" src="images/product-placeholder.jpg" alt="Product Image">
+                        </div>
+                        <div class="thumbnail-images">
+                            <img class="thumbnail active" src="images/product-placeholder.jpg" alt="Thumbnail 1" onclick="changeMainImage(this.src)">
+                            <img class="thumbnail" src="images/product-placeholder.jpg" alt="Thumbnail 2" onclick="changeMainImage(this.src)">
+                            <img class="thumbnail" src="images/product-placeholder.jpg" alt="Thumbnail 3" onclick="changeMainImage(this.src)">
+                        </div>
+                    </div>
+                    
+                    <div class="product-info-detail">
+                        <h1 id="product-title">Product Name</h1>
+                        <div class="product-rating">
+                            <span class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </span>
+                            <span class="review-count">(24 reviews)</span>
+                        </div>
+                        <p class="product-price" id="product-price">$12.99</p>
+                        
+                        <div class="product-description">
+                            <p id="product-description">
+                                Detailed product description will appear here. This premium product from Knot & Toe is designed to enhance your style and comfort. Made with high-quality materials and attention to detail.
+                            </p>
+                        </div>
+                        
+                        <div class="product-options">
+                            <div class="option-selector">
+                                <label for="product-color">Color:</label>
+                                <select id="product-color" class="product-selector">
+                                    <option value="black">Black</option>
+                                    <option value="white">White</option>
+                                    <option value="blue">Navy Blue</option>
+                                    <option value="red">Red</option>
+                                </select>
+                            </div>
+                            
+                            <div class="option-selector">
+                                <label for="product-size">Size:</label>
+                                <select id="product-size" class="product-selector">
+                                    <option value="small">Small</option>
+                                    <option value="medium" selected>Medium</option>
+                                    <option value="large">Large</option>
+                                </select>
+                            </div>
+                            
+                            <div class="quantity-selector">
+                                <label for="product-quantity">Quantity:</label>
+                                <div class="quantity-controls">
+                                    <button class="quantity-btn minus" onclick="updateQuantity(-1)">-</button>
+                                    <input type="number" id="product-quantity" value="1" min="1" max="10">
+                                    <button class="quantity-btn plus" onclick="updateQuantity(1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                        
+                        <div class="product-meta">
+                            <p><strong>SKU:</strong> <span id="product-sku">KT-0001</span></p>
+                            <p><strong>Categories:</strong> <span id="product-categories">Shoelaces</span></p>
+                            <p><strong>Tags:</strong> <span id="product-tags">Premium, Flat, Cotton</span></p>
+                        </div>
+                        
+                        <div class="product-shipping-info">
+                            <p><i class="fas fa-truck"></i> Free shipping on orders over $35</p>
+                            <p><i class="fas fa-undo"></i> 30-day returns</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-tabs">
+                    <div class="tab-header">
+                        <button class="tab-btn active" onclick="openTab(event, 'details')">Details</button>
+                        <button class="tab-btn" onclick="openTab(event, 'specifications')">Specifications</button>
+                        <button class="tab-btn" onclick="openTab(event, 'reviews')">Reviews (24)</button>
+                    </div>
+                    
+                    <div id="details" class="tab-content active">
+                        <h3>Product Details</h3>
+                        <p>Our premium products are crafted with attention to detail and quality materials. Each item is designed to enhance your style while providing exceptional comfort and durability.</p>
+                        <ul>
+                            <li>High-quality materials</li>
+                            <li>Durable construction</li>
+                            <li>Stylish design</li>
+                            <li>Comfortable fit</li>
+                        </ul>
+                        <p>Perfect for everyday use or special occasions, this product is versatile and practical. The attention to detail in the manufacturing process ensures that you're getting a product that will last.</p>
+                    </div>
+                    
+                    <div id="specifications" class="tab-content">
+                        <h3>Product Specifications</h3>
+                        <table class="specs-table">
+                            <tr>
+                                <th>Material</th>
+                                <td>Premium Cotton</td>
+                            </tr>
+                            <tr>
+                                <th>Length</th>
+                                <td>120cm</td>
+                            </tr>
+                            <tr>
+                                <th>Width</th>
+                                <td>1cm</td>
+                            </tr>
+                            <tr>
+                                <th>Weight</th>
+                                <td>15g</td>
+                            </tr>
+                            <tr>
+                                <th>Country of Origin</th>
+                                <td>USA</td>
+                            </tr>
+                            <tr>
+                                <th>Care Instructions</th>
+                                <td>Hand wash cold, air dry</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div id="reviews" class="tab-content">
+                        <h3>Customer Reviews</h3>
+                        <div class="review-summary">
+                            <div class="overall-rating">
+                                <span class="rating-number">4.5</span>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span>Based on 24 reviews</span>
+                            </div>
+                            <div class="rating-breakdown">
+                                <div class="rating-bar">
+                                    <span>5 Star</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 75%;"></div>
+                                    </div>
+                                    <span>18</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span>4 Star</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 15%;"></div>
+                                    </div>
+                                    <span>3</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span>3 Star</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 8%;"></div>
+                                    </div>
+                                    <span>2</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span>2 Star</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 4%;"></div>
+                                    </div>
+                                    <span>1</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span>1 Star</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 0%;"></div>
+                                    </div>
+                                    <span>0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="customer-reviews">
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <span class="reviewer-name">James S.</span>
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <span class="review-date">May 10, 2025</span>
+                                </div>
+                                <div class="review-content">
+                                    <p>These laces are amazing! Great quality and they look fantastic with my sneakers. Will definitely be buying more colors.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <span class="reviewer-name">Sarah L.</span>
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <span class="review-date">April 28, 2025</span>
+                                </div>
+                                <div class="review-content">
+                                    <p>Good quality laces, but a bit longer than I expected. Still very happy with the purchase though, and the customer service was excellent.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <span class="reviewer-name">Michael T.</span>
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                    </div>
+                                    <span class="review-date">April 15, 2025</span>
+                                </div>
+                                <div class="review-content">
+                                    <p>These are now my go-to laces for all my shoes. The quality is superb and they really add something special to even my oldest pairs of shoes.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn-outline load-more-reviews">Load More Reviews</button>
+                        
+                        <div class="write-review-section">
+                            <h4>Write a Review</h4>
+                            <form class="review-form">
+                                <div class="form-group">
+                                    <label for="reviewer-name">Your Name</label>
+                                    <input type="text" id="reviewer-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="reviewer-email">Email</label>
+                                    <input type="email" id="reviewer-email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Your Rating</label>
+                                    <div class="rating-selector">
+                                        <i class="far fa-star" onclick="setRating(1)"></i>
+                                        <i class="far fa-star" onclick="setRating(2)"></i>
+                                        <i class="far fa-star" onclick="setRating(3)"></i>
+                                        <i class="far fa-star" onclick="setRating(4)"></i>
+                                        <i class="far fa-star" onclick="setRating(5)"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="review-text">Your Review</label>
+                                    <textarea id="review-text" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn">Submit Review</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Related Products -->
+                <div class="related-products">
+                    <h2>You May Also Like</h2>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/laces-2.jpg" alt="Reflective Laces">
+                            </div>
+                            <div class="product-info">
+                                <h3>Reflective Laces</h3>
+                                <p class="price">$14.99</p>
+                                <a href="product.html?id=laces-2" class="btn-small">View Details</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/laces-3.jpg" alt="Patterned Laces">
+                            </div>
+                            <div class="product-info">
+                                <h3>Patterned Laces</h3>
+                                <p class="price">$13.99</p>
+                                <a href="product.html?id=laces-3" class="btn-small">View Details</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/laces-4.jpg" alt="Athletic Laces">
+                            </div>
+                            <div class="product-info">
+                                <h3>Athletic Laces</h3>
+                                <p class="price">$11.99</p>
+                                <a href="product.html?id=laces-4" class="btn-small">View Details</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/accessory-2.jpg" alt="Lace Locks">
+                            </div>
+                            <div class="product-info">
+                                <h3>Lace Locks</h3>
+                                <p class="price">$7.99</p>
+                                <a href="product.html?id=accessory-2" class="btn-small">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Join Our Mailing List</h2>
+                <p>Get exclusive offers, new product announcements, and styling tips delivered to your inbox.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="products.html">Shoelaces</a></li>
+                        <li><a href="products.html">Socks</a></li>
+                        <li><a href="products.html">Accessories</a></li>
+                        <li><a href="products.html">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Help</h3>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Reviews</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                    <div class="newsletter">
+                        <p>Subscribe for updates</p>
+                        <form>
+                            <input type="email" placeholder="Your email">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Knot & Toe. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
